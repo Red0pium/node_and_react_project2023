@@ -1,1 +1,64 @@
-<p>modidel-package works!</p>
+<div class="create-container">
+  <h2>Select the package you want to delete or modify</h2>
+</div>
+
+<form>
+  <div class="form-group">
+    <label for="categoryField">Category</label>
+    <select class="form-control" id="categoryField">
+      <option value="1">Choose category</option>
+      <option value="2">Math</option>
+      <option value="3">Science</option>
+      <option value="4">Language</option>
+      <option value="5">History</option>
+    </select>
+
+    <h1>If you want to modify the package you chose, juste enter the new information about it</h1>
+  </div>
+  <div class="form-group">
+    <label for="titleField">Title</label>
+    <input type="text" class="form-control" id="titleField"
+           placeholder="Enter title">
+  </div>
+
+  <div class="form-group">
+    <label for="descriptionField">Description</label>
+    <textarea class="form-control" id="descriptionField" rows="3"
+              placeholder="Enter description"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="targetaudienceField">Target Audience</label>
+    <select class="form-control" id="targetaudienceField">
+      <option value="1">Choose a target audience</option>
+      <option value="2">Beginner</option>
+      <option value="3">Intermediate</option>
+      <option value="4">Expert</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="levelField" ngbTooltip="Enter value between 1(basics) to 10(advanced)">Level</label>
+    <select class="form-control" id="levelField">
+      <option value="1">Choose Level</option>
+      <option value="2">Easy</option>
+      <option value="3">Medium</option>
+      <option value="4">Difficult</option>
+    </select>
+  </div>
+</form>
+
+<div class="modidel-packages-container">
+  <div class="button-container">
+    <button (click)="confirmDelete()">DELETE</button>
+    <button class="home-button" (click)="navigateTo('home')">MODIFY</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+

@@ -8,7 +8,6 @@ import {Router} from "@angular/router";
 })
 export class ManageFactsComponent {
   constructor(private router: Router) {}
-  navigateTo(destination: string) {
-    this.router.navigate([`/${destination}`]);}
-
+  navigateTo(route: string) {
+    this.router.navigate([route]);}
 }

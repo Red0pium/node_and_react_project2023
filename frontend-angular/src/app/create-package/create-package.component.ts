@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-package',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './create-package.component.css'
 })
 export class CreatePackageComponent {
+  constructor(private router: Router) {
+  }
 
+  navigateTo(destination: string) {
+    this.router.navigate([`/${destination}`]);
+  }
 }
