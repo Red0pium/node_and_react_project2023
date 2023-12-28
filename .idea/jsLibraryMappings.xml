@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/backend-nodejs" libraries="{node_and_react_project2023/backend-nodejs/node_modules}" />
+  </component>
+</project>
