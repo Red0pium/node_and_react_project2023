@@ -11,7 +11,7 @@ import { RouterOutlet} from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend-angular2';
+  title = 'frontend-angular-angular2';
   constructor(private router : Router) {}
 
   navigateTo(destination: string) {
