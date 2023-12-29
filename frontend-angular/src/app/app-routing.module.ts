@@ -8,6 +8,8 @@ import { ManagePackagesComponent} from "./manage-packages/manage-packages.compon
 import { ManageFactsComponent} from "./manage-facts/manage-facts.component";
 import { CreatePackageComponent} from "./create-package/create-package.component";
 import { ModidelPackageComponent} from "./modidel-package/modidel-package.component";
+import { CreateFactComponent} from "./create-fact/create-fact.component";
+import {ModidelFactComponent} from "./modidel-fact/modidel-fact.component";
 
 
 const routes: Routes = [
@@ -18,7 +20,9 @@ const routes: Routes = [
   { path: 'manage-packages', component: ManagePackagesComponent},
   { path: 'manage-facts', component: ManageFactsComponent},
   { path: 'create-package', component: CreatePackageComponent},
-  { path: 'modidel-package', component: ModidelPackageComponent}
+  { path: 'modidel-package', component: ModidelPackageComponent},
+  { path: 'create-fact', component: CreateFactComponent},
+  { path: 'modidel-fact', component: ModidelFactComponent}
 ];
 
 @NgModule({

@@ -15,7 +15,7 @@ export class ModidelPackageComponent {
   }
 
   confirmDelete() {
-    const userConfirmed = confirm("Êtes-vous sûr de vouloir supprimer cet élément ?");
+    const userConfirmed = confirm("Are you sure you want to delete this package ?");
     if (userConfirmed) {
       this.navigateTo('home');
     } else {

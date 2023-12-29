@@ -15,6 +15,7 @@ import { ModidelFactComponent } from './modidel-fact/modidel-fact.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
+import { CreateFactComponent } from './create-fact/create-fact.component';
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -28,7 +29,8 @@ AppModule = __decorate([
             ManagePackagesComponent,
             ManageFactsComponent,
             ModidelFactComponent,
-            HomeComponent
+            HomeComponent,
+            CreateFactComponent
         ],
         imports: [
             BrowserModule,
