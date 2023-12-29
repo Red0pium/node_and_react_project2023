@@ -13,6 +13,8 @@ import { ManagePackagesComponent } from './manage-packages/manage-packages.compo
 import { ManageFactsComponent } from './manage-facts/manage-facts.component';
 import { ModidelFactComponent } from './modidel-fact/modidel-fact.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule } from "@angular/common/http";
+import {FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

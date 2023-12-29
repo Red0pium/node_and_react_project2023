@@ -1,8 +1,19 @@
 import { __decorate } from "tslib";
 import { Component } from '@angular/core';
 let LearnComponent = class LearnComponent {
-    constructor(router) {
+    constructor(router, packageService) {
         this.router = router;
+        this.packageService = packageService;
+        this.selectedPackageId = null;
+        this.displayText = ''; // This will hold the text to display
+        this.learningPackages = [];
+    }
+    ngOnInit() {
+        this.packageService.getAllPackages().subscribe(data => {
+            this.learningPackages = data;
+        }, error => {
+            console.error('Error fetching learning packages:', error);
+        });
     }
     navigateHome() {
         this.router.navigate(['/home']);
