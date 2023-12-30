@@ -14,10 +14,14 @@ let LearningFactService = class LearningFactService {
     getFactsByPackageId(Id) {
         return this.http.get(`http://localhost:3000/learning-packages/${Id}/learning-facts`);
     }
+    createFact(factData) {
+        return this.http.post(`${this.baseUrl}`, factData);
+    }
     updateFact(id, factData) {
         return this.http.put(`${this.baseUrl}/${id}`, factData);
     }
     deleteFact(id) {
+        console.log(`${this.baseUrl}/${id}`);
         return this.http.delete(`${this.baseUrl}/${id}`);
     }
 };
