@@ -21,16 +21,6 @@ then click the "HOME" button and you can use the website
 
 The <u>**advanced web feature**</u> is at the end of any learning program, it displays the results of your training session on a package.
 
-From here, using the website is easy and intuitive. I let you try it by yourself, **please try every functionality, it took us a lot of time**. But here is what you can do:
-- create new packages
-- create new facts
-- modify existing facts
-- modify existing packages
-- delete existing facts
-- delete existing packages (this will delete all the facts inside the package before deleting the package)
-- answer the questions of the facts in a given package
-- rate how well you answered each question (at the end of the learning session, you will get a review telling how well you performed)
-
-And everytime you do something, there are always verifications. For example, if you want to create a new fact, you can't leave an empty question or answer. I let you try everything by yourself,  
+From here, using the website is easy and intuitive. I let you try it by yourself, **please try every functionality, it took us a lot of time**.
 
 Thanks !
