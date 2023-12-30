@@ -67,15 +67,28 @@ app.put('/learning-packages/:id', async (req, res) => {
 
 //Delete a learning package
 app.delete('/learning-packages/:id', async (req, res) => {
+    const packageId = req.params.id;
+
     try {
-        const rowsDeleted = await LearningPackageTable.destroy({
-            where: {
-                LearningPackageID: req.params.id
-            }
+        const result = await sequelize.transaction(async (t) => {
+            // Delete all learning facts associated with the package
+            await LearningFactTable.destroy({
+                where: { LearningPackageID: packageId },
+                transaction: t
+            });
+
+            // Delete the package itself
+            const rowsDeleted = await LearningPackageTable.destroy({
+                where: { LearningPackageID: packageId },
+                transaction: t
+            });
+
+            return rowsDeleted;
         });
 
-        if (rowsDeleted) {
-            res.send('Package deleted successfully');
+        // Check if the package was deleted
+        if (result) {
+            res.send('Package and its associated facts deleted successfully');
         } else {
             res.status(404).send('Package not found');
         }
@@ -136,7 +149,7 @@ app.post('/learning-facts', async (req, res) => {
 });
 
 //Update a learning fact
-app.put('learning-facts/:id', async (req, res) => {
+app.put('/learning-facts/:id', async (req, res) => {
     try {
         const packageToUpdate = await LearningFactTable.findByPk(req.params.id);
         if (packageToUpdate) {

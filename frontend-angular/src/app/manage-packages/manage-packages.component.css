@@ -12,4 +12,8 @@
   /* Autres styles */
 }
 
-/* Ajoutez des styles pour positionner correctement vos éléments */
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}

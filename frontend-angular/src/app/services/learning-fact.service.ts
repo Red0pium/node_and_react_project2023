@@ -21,4 +21,17 @@ export class LearningFactService {
   getFactsByPackageId(Id: number): Observable<any> {
     return this.http.get(`http://localhost:3000/learning-packages/${Id}/learning-facts`);
   }
+
+  createFact(factData: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}`, factData);
+  }
+
+  updateFact(id: number, factData: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${id}`, factData);
+  }
+
+  deleteFact(id: number): Observable<any> {
+    console.log(`${this.baseUrl}/${id}`)
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 }

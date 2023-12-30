@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const cors = require('cors');
 const express = require('express');
 const app = express();
+const sequelize_1 = require("./sequelize");
 const LearningPackageTable_1 = require("./models/LearningPackageTable");
 const LearningFactTable_1 = require("./models/LearningFactTable");
 app.use(cors());
@@ -74,14 +75,24 @@ app.put('/learning-packages/:id', (req, res) => __awaiter(void 0, void 0, void 0
 }));
 //Delete a learning package
 app.delete('/learning-packages/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const packageId = req.params.id;
     try {
-        const rowsDeleted = yield LearningPackageTable_1.default.destroy({
-            where: {
-                LearningPackageID: req.params.id
-            }
-        });
-        if (rowsDeleted) {
-            res.send('Package deleted successfully');
+        const result = yield sequelize_1.default.transaction((t) => __awaiter(void 0, void 0, void 0, function* () {
+            // Delete all learning facts associated with the package
+            yield LearningFactTable_1.default.destroy({
+                where: { LearningPackageID: packageId },
+                transaction: t
+            });
+            // Delete the package itself
+            const rowsDeleted = yield LearningPackageTable_1.default.destroy({
+                where: { LearningPackageID: packageId },
+                transaction: t
+            });
+            return rowsDeleted;
+        }));
+        // Check if the package was deleted
+        if (result) {
+            res.send('Package and its associated facts deleted successfully');
         }
         else {
             res.status(404).send('Package not found');
@@ -143,7 +154,7 @@ app.post('/learning-facts', (req, res) => __awaiter(void 0, void 0, void 0, func
     }
 }));
 //Update a learning fact
-app.put('learning-facts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.put('/learning-facts/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const packageToUpdate = yield LearningFactTable_1.default.findByPk(req.params.id);
         if (packageToUpdate) {

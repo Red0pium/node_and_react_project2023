@@ -9,6 +9,7 @@
 <div class="learn-container">
   <h1>Choose the package you want to study</h1>
   <select class="form-control" id="packageField" [(ngModel)]="selectedPackageId">
+    <option value="1">Choose a learning package</option>
     <option *ngFor="let package of learningPackages" [value]="package.LearningPackageID">
       {{ package.Title }}
   </select>

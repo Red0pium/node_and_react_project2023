@@ -8,3 +8,11 @@
   padding: 10px;
   background-color: #f8f8f8; /* Ou toute autre couleur de fond souhaitée */
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+
+

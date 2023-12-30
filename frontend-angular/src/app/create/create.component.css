@@ -25,3 +25,9 @@ body {
 .btn-primary {
   margin-top: 15px;
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
