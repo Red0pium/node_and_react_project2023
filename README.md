@@ -51,6 +51,7 @@ Learn screen, choose a package to train on:
 
 Training screen, displays questions from the chosen package in a random order:
 ![img_26.png](img_26.png)
+![img_30.png](img_30.png)
 ![img_27.png](img_27.png)
 ![img_28.png](img_28.png)
 
