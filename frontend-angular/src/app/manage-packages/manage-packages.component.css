@@ -1,15 +1,20 @@
-.learn-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+.manage-packages-container {
+  text-align: center;
+  margin-top: 50px;
 }
 
-.package-select, .learn-button, .home-button {
+.manage-button {
   margin: 10px;
   padding: 10px 20px;
-  /* Autres styles */
+  background-color: #0d5eff; /* Light blue background */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.manage-button:hover {
+  background-color: #0941b2; /* Darker blue on hover */
 }
 
 .button-container {

@@ -9,6 +9,7 @@ let ModidelFactComponent = class ModidelFactComponent {
         this.selectedPackageId = null;
         this.selectedQuestion = '';
         this.selectedAnswer = '';
+        this.selectedGeneralPackageID = null;
         this.learningFacts = [];
         this.learningPackages = [];
         this.parseInt = parseInt;
@@ -24,6 +25,30 @@ let ModidelFactComponent = class ModidelFactComponent {
             this.selectedAnswer = this.selectedFact.verso; // assuming 'verso' is the answer
             this.selectedPackageId = this.selectedFact.LearningPackageID;
         }
+    }
+    onGenPackageSelect() {
+        const selectedGenId = Number(this.selectedGeneralPackageID);
+        console.log("selected gen package ID", this.selectedGeneralPackageID);
+        if (!isNaN(selectedGenId) && selectedGenId !== 0) {
+            console.log("selectedGenID", selectedGenId);
+            this.factService.getFactsByPackageId(selectedGenId).subscribe(data => {
+                this.learningFacts = data;
+            }, error => {
+                console.error('Error fetching learning facts:', error);
+            });
+        }
+        else {
+            this.factService.getAllFacts().subscribe(data => {
+                this.learningFacts = data;
+            }, error => {
+                console.error('Error fetching learning facts:', error);
+            });
+        }
+        this.selectedFactId = null;
+        this.selectedPackageId = null;
+        this.selectedQuestion = '';
+        this.selectedAnswer = '';
+        this.selectedGeneralPackageID = null;
     }
     modifyFact() {
         if (this.selectedFactId === null) {
@@ -69,7 +94,7 @@ let ModidelFactComponent = class ModidelFactComponent {
         this.factService.getAllFacts().subscribe(data => {
             this.learningFacts = data;
         }, error => {
-            console.error('Error fetching learning packages:', error);
+            console.error('Error fetching learning facts:', error);
         });
         this.packageService.getAllPackages().subscribe(data => {
             this.learningPackages = data;

@@ -15,4 +15,21 @@
   margin-top: 50px;
 }
 
+.home-button:hover {
+  background-color: #0941b2; /* Darker grey on hover */
+}
+.content{
+  text-align: center;
+  margin-top: 50px;
+}
+
+.home-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #0d5eff; /* Light grey background */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
 

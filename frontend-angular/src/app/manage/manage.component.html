@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Manage</title>
 </head>
 <body>
 <div class="manage-container">
-  <h1>MANAGE : Choose to manage a package or a fact</h1>
+  <h1><strong>MANAGE</strong></h1>
+  <h1>Choose to manage packages or facts</h1>
+
   <div class="button-container">
-    <button class="manage-packages-button" (click)="navigateTo('manage-packages')">PACKAGES</button>
-    <button class="manage-facts-button" (click)="navigateTo('manage-facts')">FACTS</button>
+    <button class="manage-button" (click)="navigateTo('manage-packages')">PACKAGES</button>
+    <button class="manage-button" (click)="navigateTo('manage-facts')">FACTS</button>
   </div>
 </div>
-
 </body>
 </html>

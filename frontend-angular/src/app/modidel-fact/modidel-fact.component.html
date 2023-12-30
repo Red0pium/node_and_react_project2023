@@ -9,9 +9,14 @@
 <div class="create-container">
   <h2>Select the fact you want to delete or modify</h2>
   <div class="input-group">
+    <label for="GeneralPackageField">Package containing the fact</label>
+    <select class="form-control custom-select-width" id="GeneralPackageField" name="GeneralPackageId" [(ngModel)]="selectedGeneralPackageID" (change)="onGenPackageSelect()">
+      <option value="">All packages</option>
+      <option *ngFor="let package of learningPackages" [value]="parseInt(package.LearningPackageID)">
+        {{ package.Title }}
+    </select>
     <label for="factField">Facts</label>
     <select class="form-control custom-select-width" id="factField" name="factId" [(ngModel)]="selectedFactId" (change)="onFactSelect()">
-      <option value="1">Choose fact</option>
       <option *ngFor="let fact of learningFacts" [value]="parseInt(fact.ID)">
         {{ fact.ID }}
     </select>
@@ -20,9 +25,9 @@
 
 <form>
   <div class="create-container">
-    <h2>If you want to modify the fact you chose, just enter the new information about it</h2>
+    <h2>If you want to modify the fact you chose, just enter the new informations about it</h2>
     <div class="input-group">
-      <label for="packageField">Packages</label>
+      <label for="packageField">Package</label>
       <select class="form-control custom-select-width" id="packageField" name="packageField" [(ngModel)]="selectedPackageId">
         <option *ngFor="let package of learningPackages" [value]="parseInt(package.LearningPackageID)">
           {{ package.Title }}

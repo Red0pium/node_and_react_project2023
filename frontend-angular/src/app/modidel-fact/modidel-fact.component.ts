@@ -14,6 +14,7 @@ export class ModidelFactComponent implements OnInit{
   selectedPackageId: number | null = null;
   selectedQuestion: string = '';
   selectedAnswer: string = '';
+  selectedGeneralPackageID: number | null = null;
 
   public selectedFact:any;
   public selectedPackage:any;
@@ -34,6 +35,33 @@ export class ModidelFactComponent implements OnInit{
           this.selectedAnswer = this.selectedFact.verso;  // assuming 'verso' is the answer
           this.selectedPackageId = this.selectedFact.LearningPackageID;
       }
+  }
+
+  onGenPackageSelect():void {
+    const selectedGenId = Number(this.selectedGeneralPackageID)
+    console.log("selected gen package ID",this.selectedGeneralPackageID)
+    if (!isNaN(selectedGenId) && selectedGenId !==0)
+    {
+      console.log("selectedGenID",selectedGenId)
+      this.factService.getFactsByPackageId(selectedGenId).subscribe( data => {
+        this.learningFacts = data;
+      }, error => {
+        console.error('Error fetching learning facts:', error);
+      });
+    }
+    else
+    {
+      this.factService.getAllFacts().subscribe( data => {
+        this.learningFacts = data;
+      }, error => {
+        console.error('Error fetching learning facts:', error);
+      });
+    }
+    this.selectedFactId = null
+    this.selectedPackageId = null
+    this.selectedQuestion = '';
+    this.selectedAnswer = '';
+    this.selectedGeneralPackageID = null;
   }
 
     modifyFact() {
@@ -84,7 +112,7 @@ export class ModidelFactComponent implements OnInit{
       this.factService.getAllFacts().subscribe(data => {
           this.learningFacts = data;
       }, error => {
-          console.error('Error fetching learning packages:', error);
+          console.error('Error fetching learning facts:', error);
       });
       this.packageService.getAllPackages().subscribe(data => {
           this.learningPackages = data;

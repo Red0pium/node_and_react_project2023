@@ -12,13 +12,14 @@
 .learn-button, .manage-button {
   padding: 10px 20px;
   margin: 0 10px;
-  background-color: #d3d3d3; /* Light grey background */
+  background-color: #0d5eff; /* Light grey background */
+  color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
 }
 
 .learn-button:hover, .manage-button:hover {
-  background-color: #a9a9a9; /* Darker grey on hover */
+  background-color: #0941b2; /* Darker grey on hover */
 }
 
