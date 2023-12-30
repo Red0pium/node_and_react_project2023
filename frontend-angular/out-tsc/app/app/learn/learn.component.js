@@ -5,8 +5,9 @@ let LearnComponent = class LearnComponent {
         this.router = router;
         this.packageService = packageService;
         this.selectedPackageId = null;
-        this.displayText = ''; // This will hold the text to display
+        this.selectedPackage = null; // Property to hold the selected package details
         this.learningPackages = [];
+        this.learningFacts = [];
     }
     ngOnInit() {
         this.packageService.getAllPackages().subscribe(data => {
@@ -15,8 +16,26 @@ let LearnComponent = class LearnComponent {
             console.error('Error fetching learning packages:', error);
         });
     }
-    navigateHome() {
-        this.router.navigate(['/home']);
+    onPackageChange() {
+        this.selectedPackage = this.learningPackages.find(pkg => pkg.LearningPackageID === Number(this.selectedPackageId)) || null;
+        this.packageService.getPackageFacts(Number(this.selectedPackageId)).subscribe(data => {
+            this.learningFacts = data;
+        }, error => {
+            console.error('Error fetching learning facts:', error);
+        });
+    }
+    navigateLearn(id) {
+        if (id !== null) {
+            if (this.learningFacts.length > 0) {
+                this.router.navigate([`/learn/${id}`]);
+            }
+            else {
+                alert("No fact in this package");
+            }
+        }
+        else {
+            alert("Invalid package selected");
+        }
     }
 };
 LearnComponent = __decorate([

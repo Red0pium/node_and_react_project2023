@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from "@angular/common/http";
 import {FormsModule } from "@angular/forms";
 import { CreateFactComponent } from './create-fact/create-fact.component';
+import { LearningComponent } from './learning/learning.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CreateFactComponent } from './create-fact/create-fact.component';
     ManageFactsComponent,
     ModidelFactComponent,
     HomeComponent,
-    CreateFactComponent
+    CreateFactComponent,
+    LearningComponent
   ],
   imports: [
     BrowserModule,

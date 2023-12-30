@@ -52,7 +52,6 @@ let CreateFactComponent = class CreateFactComponent {
             }, error => {
                 console.error('Error creating the fact:', error);
             });
-            this.navigateTo('home');
         }
         else {
             this.navigateTo('create-fact');

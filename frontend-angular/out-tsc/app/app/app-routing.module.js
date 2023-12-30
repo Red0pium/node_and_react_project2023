@@ -11,6 +11,7 @@ import { CreatePackageComponent } from "./create-package/create-package.componen
 import { ModidelPackageComponent } from "./modidel-package/modidel-package.component";
 import { CreateFactComponent } from "./create-fact/create-fact.component";
 import { ModidelFactComponent } from "./modidel-fact/modidel-fact.component";
+import { LearningComponent } from "./learning/learning.component";
 const routes = [
     { path: 'home', component: HomeComponent },
     { path: 'create', component: CreateComponent },
@@ -21,7 +22,8 @@ const routes = [
     { path: 'create-package', component: CreatePackageComponent },
     { path: 'modidel-package', component: ModidelPackageComponent },
     { path: 'create-fact', component: CreateFactComponent },
-    { path: 'modidel-fact', component: ModidelFactComponent }
+    { path: 'modidel-fact', component: ModidelFactComponent },
+    { path: 'learn/:selectedPackageId', component: LearningComponent }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

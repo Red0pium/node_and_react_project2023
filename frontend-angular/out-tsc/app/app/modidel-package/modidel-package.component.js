@@ -89,7 +89,8 @@ let ModidelPackageComponent = class ModidelPackageComponent {
         const userConfirmed = confirm("Are you sure you want to delete this package **and all of his facts**?");
         if (userConfirmed) {
             this.packageService.deletePackage(this.selectedPackageId).subscribe(response => {
-                // Handle delete response
+                console.log("Package deleted successfully");
+                alert("Package deleted");
                 this.navigateTo('home');
             }, error => {
                 console.error('Error deleting the package:', error);

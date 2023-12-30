@@ -1,0 +1,24 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-8 col-md-6 col-lg-4">
+      <div class="card text-center card-custom">
+        <div class="card-header">
+          {{ selectedPackage?.Title }}
+        </div>
+        <div class="card-body bg-primary text-white">
+          <!-- Bind the current question -->
+          <h5 class="card-title">{{ currentFact?.recto }}</h5>
+          <span class="badge position-absolute top-0 end-0 mt-2 me-2">
+            Question {{ currentFactIndex + 1 }}/{{ learningFacts.length }}
+          </span>
+          <!-- Show the answer if showAnswer is true -->
+          <p class="card-text" *ngIf="showAnswer">{{ currentFact?.verso }}</p>
+        </div>
+      </div>
+      <!-- Change the button text depending on the state -->
+      <button class="btn btn-secondary mt-3" (click)="onClick()">
+        {{ allFactsAnswered ? 'Home' : (showAnswer ? 'Next' : 'Show Answer') }}
+      </button>
+    </div>
+  </div>
+</div>

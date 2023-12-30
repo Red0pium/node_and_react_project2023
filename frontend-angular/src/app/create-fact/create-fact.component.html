@@ -1,34 +1,43 @@
-<script src="create-fact.component.spec.ts"></script>
-<div class="create-container">
-  <h2>Create a new fact here</h2>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create New Fact</title>
+</head>
+<body>
 
 <form>
+<div class="create-container">
+  <h2>Create a new fact here</h2>
+    <div class="input-group">
+      <label for="categoryField">Package</label>
+      <select class="form-control custom-select-width" id="categoryField" [(ngModel)]="selectedPackageId" name="packageField">
+        <option *ngFor="let package of learningPackages" [value]="parseInt(package.LearningPackageID)">
+          {{ package.Title }}
+        </option>
+      </select>
+    </div>
+</div>
 
-  <div class="form-group">
-    <label for="categoryField">Package</label>
-    <select class="form-control" id="categoryField" [(ngModel)]="selectedPackageId" name="packageField">
-      <option *ngFor="let package of learningPackages" [value]="parseInt(package.LearningPackageID)">
-        {{ package.Title }}
-      </option>
-    </select>
+  <div class="create-container">
+    <div class="input-group">
+      <label for="questionField">Question</label>
+      <textarea class="form-control custom-select-width" id="questionField" name="questionField" rows="3" [(ngModel)]="enteredQuestion" placeholder="Enter Question"></textarea>
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="questionField">Question</label>
-    <textarea class="form-control" id="questionField" name="questionField" rows="3" [(ngModel)]="enteredQuestion" placeholder="Enter Question"></textarea>
-  </div>
-
-  <div class="form-group">
+  <div class="create-container">
+  <div class="input-group">
     <label for="answerField">Answer</label>
-    <textarea class="form-control" id="answerField" name="answerField" rows="3" [(ngModel)]="enteredAnswer" placeholder="Enter Answer"></textarea>
-
+    <textarea class="form-control custom-select-width" id="answerField" name="answerField" rows="3" [(ngModel)]="enteredAnswer" placeholder="Enter Answer"></textarea>
+  </div>
   </div>
 
 
   <button type="submit" class="home-button" (click)="createFact()">Submit</button>
 </form>
-
+</body>
+</html>
 
 
 

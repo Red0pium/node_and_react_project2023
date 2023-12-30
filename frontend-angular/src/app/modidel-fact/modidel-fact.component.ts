@@ -110,5 +110,5 @@ export class ModidelFactComponent implements OnInit{
         this.navigateTo('modidel-fact');}
   }
 
-    protected readonly parseInt = parseInt;
+  protected readonly parseInt = parseInt;
 }

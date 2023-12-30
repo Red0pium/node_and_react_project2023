@@ -8,21 +8,35 @@
 
 <div class="learn-container">
   <h1>Choose the package you want to study</h1>
-  <select class="form-control" id="packageField" [(ngModel)]="selectedPackageId">
-    <option value="1">Choose a learning package</option>
-    <option *ngFor="let package of learningPackages" [value]="package.LearningPackageID">
+  <select class="form-control custom-select-width" id="packageField" [(ngModel)]="selectedPackageId" (change)="onPackageChange()">
+  <option *ngFor="let package of learningPackages" [value]="package.LearningPackageID">
       {{ package.Title }}
+    </option>
   </select>
+  <!-- List is always present -->
+  <div class="package-details mt-3">
+    <ul class="list-group">
+      <!-- List items display content conditionally -->
+      <li class="list-group-item" *ngIf="selectedPackage"><strong>Title: </strong> {{ selectedPackage.Title }}</li>
+      <li class="list-group-item" *ngIf="selectedPackage"><strong>Description: </strong> {{ selectedPackage.Description }}</li>
+      <li class="list-group-item" *ngIf="selectedPackage"><strong>Category: </strong> {{ selectedPackage.Category }}</li>
+      <li class="list-group-item" *ngIf="selectedPackage"><strong>Target audience: </strong> {{ selectedPackage.TargetAudience }}</li>
+      <li class="list-group-item" *ngIf="selectedPackage"><strong>Difficulty level: </strong> {{ selectedPackage.DifficultyLevel }}</li>
+      <li class="list-group-item" *ngIf="selectedPackage"><strong>Number of facts: </strong> {{ learningFacts.length }}</li>
+      <!-- Add more fields as needed -->
+      <!-- Display a message if no package is selected -->
+      <li class="list-group-item" *ngIf="!selectedPackage"><strong>Title:</strong></li>
+      <li class="list-group-item" *ngIf="!selectedPackage"><strong>Description:</strong></li>
+      <li class="list-group-item" *ngIf="!selectedPackage"><strong>Category:</strong></li>
+      <li class="list-group-item" *ngIf="!selectedPackage"><strong>Target audience:</strong></li>
+      <li class="list-group-item" *ngIf="!selectedPackage"><strong>Difficulty level:</strong></li>
+      <li class="list-group-item" *ngIf="!selectedPackage"><strong>Number of facts:</strong></li>
 
-  <button class="learn-button">LEARN</button>
+    </ul>
+  </div>
+
+  <button class="learn-button btn btn-primary mt-3" (click)="navigateLearn(selectedPackageId)">LEARN</button>
 </div>
 
 </body>
 </html>
-
-
-
-
-
-
-

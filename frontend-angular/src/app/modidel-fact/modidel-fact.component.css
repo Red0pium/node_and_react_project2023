@@ -1,5 +1,60 @@
+.create-container, .modidel-packages-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  margin-right: 10px;
+}
+
+.custom-select-width {
+  width: 100%;
+}
+
+.form-group {
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.learn-button, .home-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #0d5eff;
+  color: white;
+  display: block;
+  width: 200px;
+  margin: 1rem auto;
+}
+.button-containerr {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
 .button-container {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 50px;
+  justify-content: center; /* Aligns items horizontally in the center */
+  margin-top: 20px; /* Reduced margin-top to bring buttons closer to the center */
+  flex-wrap: wrap; /* Allows buttons to wrap if needed */
+  width: 50%;
+}
+
+
+.learn-button:hover, .home-button:hover {
+  background-color: #0941b2 ;
 }

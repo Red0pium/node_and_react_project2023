@@ -1,43 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modify/Delete Fact</title>
+</head>
+<body>
+
 <div class="create-container">
   <h2>Select the fact you want to delete or modify</h2>
-</div>
-
-<form>
-  <div class="form-group">
+  <div class="input-group">
     <label for="factField">Facts</label>
-    <select class="form-control" id="factField" [(ngModel)]="selectedFactId" name="factId" (change)="onFactSelect()">
+    <select class="form-control custom-select-width" id="factField" name="factId" [(ngModel)]="selectedFactId" (change)="onFactSelect()">
       <option value="1">Choose fact</option>
       <option *ngFor="let fact of learningFacts" [value]="parseInt(fact.ID)">
         {{ fact.ID }}
-      </option>
     </select>
+  </div>
+</div>
 
+<form>
+  <div class="create-container">
     <h2>If you want to modify the fact you chose, just enter the new information about it</h2>
-  </div>
+    <div class="input-group">
+      <label for="packageField">Packages</label>
+      <select class="form-control custom-select-width" id="packageField" name="packageField" [(ngModel)]="selectedPackageId">
+        <option *ngFor="let package of learningPackages" [value]="parseInt(package.LearningPackageID)">
+          {{ package.Title }}
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label for="packageField">Packages</label>
-    <select class="form-control" id="packageField" [(ngModel)]="selectedPackageId" name="packageField">
-      <option *ngFor="let package of learningPackages" [value]="parseInt(package.LearningPackageID)">
-        {{ package.Title }}
-      </option>
-    </select>
-  </div>
+    <div class="input-group">
+      <label for="questionField">Question</label>
+      <textarea class="form-control custom-select-width" id="questionField" name="questionField" rows="3" [(ngModel)]="selectedQuestion" placeholder="Enter Question"></textarea>
+    </div>
 
-  <div class="form-group">
-    <label for="questionField">Question</label>
-    <textarea class="form-control" id="questionField" name="questionField" rows="3" [(ngModel)]="selectedQuestion" placeholder="Enter Question"></textarea>
-  </div>
-
-  <div class="form-group">
-    <label for="answerField">Answer</label>
-    <textarea class="form-control" id="answerField" name="answerField" rows="3" [(ngModel)]="selectedAnswer" placeholder="Enter Answer"></textarea>
+    <div class="input-group">
+      <label for="answerField">Answer</label>
+      <textarea class="form-control custom-select-width" id="answerField" name="answerField" rows="3" [(ngModel)]="selectedAnswer" placeholder="Enter Answer"></textarea>
+    </div>
   </div>
 </form>
 
-<div class="modidel-packages-container">
+<div class="button-containerr">
   <div class="button-container">
-    <button (click)="confirmDelete()">DELETE</button>
+    <button class="learn-button" (click)="confirmDelete()">DELETE</button>
     <button class="home-button" (click)="modifyFact()">MODIFY</button>
   </div>
 </div>
+
+</body>
+</html>

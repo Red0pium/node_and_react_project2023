@@ -1,0 +1,52 @@
+.card-custom {
+  border-radius: 25px ;
+  height: 500px; /* Adjust the height as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-header {
+  border-top-right-radius: 25px ;
+  border-top-left-radius: 25px ;
+  background-color: #0d5eff;
+  color: white;
+  font-weight: bold;
+  font-size: large;
+}
+
+.card-body {
+  position: relative;
+  padding: 2rem;
+  display: flex; /* Use Flexbox to align children */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+  color: #FFFFFF; /* Adjust text color as needed */
+  height: 100%; /* Take up all available vertical space */
+  border-bottom-left-radius: 25px ;
+  border-bottom-right-radius: 25px ;
+}
+
+.badge {
+  background-color: #0941b2;
+  position: absolute;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  font-size: medium;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #0d5eff;
+  display: block;
+  width: 200px;
+  margin: 1rem auto;
+}
+
+.btn:hover {
+  background-color: #0941b2 ;
+}

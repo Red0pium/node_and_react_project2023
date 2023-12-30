@@ -1,48 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Modify/Delete Package</title>
+</head>
+<body>
+
 <div class="create-container">
   <h2>Select the package you want to delete or modify</h2>
-</div>
-
-<form>
-  <div class="form-group">
+  <div class="input-group">
     <label for="packageField">Packages</label>
-    <select class="form-control" id="packageField" name="packageField" [(ngModel)]="selectedPackageId" (change)="onPackageSelect()">
+    <select class="form-control custom-select-width" id="packageField" name="packageField" [(ngModel)]="selectedPackageId" (change)="onPackageSelect()">
       <option *ngFor="let package of learningPackages" [value]="parseInt(package.LearningPackageID)">
         {{ package.Title }}
       </option>
     </select>
   </div>
+</div>
 
-  <div>
+<form>
+  <div class="create-container">
     <h2>If you want to modify the package you chose, just enter the new information about it</h2>
+    <div class="input-group">
+      <label for="titleField">Name</label>
+      <input type="text" class="form-control custom-select-width" id="titleField" name="titleField" [(ngModel)]="selectedTitle" placeholder="Enter name">
+    </div>
   </div>
 
-  <div class="form-group">
-    <label for="titleField">Name</label>
-    <input type="text" class="form-control" id="titleField" name="titleField" [(ngModel)]="selectedTitle" placeholder="Enter name">
-  </div>
-
-  <div class="form-group">
+  <div class="create-container">
+  <div class="input-group">
     <label for="descriptionField">Description</label>
-    <textarea class="form-control" id="descriptionField" rows="3" name="descriptionField" [(ngModel)]="selectedDescription" placeholder="Enter description"></textarea>
+    <textarea class="form-control custom-select-width" id="descriptionField" rows="3" name="descriptionField" [(ngModel)]="selectedDescription" placeholder="Enter description"></textarea>
+  </div>
   </div>
 
-  <div class="form-group">
+  <div class="create-container">
+  <div class="input-group">
     <label for="categoryField">Category</label>
-    <input type="text" class="form-control" id="categoryField" name="categoryField" [(ngModel)]="selectedCategory" placeholder="Enter category">
+    <input type="text" class="form-control custom-select-width" id="categoryField" name="categoryField" [(ngModel)]="selectedCategory" placeholder="Enter category">
+  </div>
   </div>
 
-  <div class="form-group">
+  <div class="create-container">
+  <div class="input-group">
     <label for="targetaudienceField">Target Audience</label>
-    <select class="form-control" id="targetaudienceField" name="targetaudienceField" [(ngModel)]="selectedTargetAudience">
+    <select class="form-control custom-select-width" id="targetaudienceField" name="targetaudienceField" [(ngModel)]="selectedTargetAudience">
       <option value="Beginner">Beginner</option>
       <option value="Intermediate">Intermediate</option>
       <option value="Expert">Expert</option>
     </select>
   </div>
+  </div>
 
-  <div class="form-group">
+  <div class="create-container">
+  <div class="input-group">
     <label for="levelField">Level</label>
-    <select class="form-control" id="levelField" name="levelField" [(ngModel)]="selectedLevel">
+    <select class="form-control custom-select-width" id="levelField" name="levelField" [(ngModel)]="selectedLevel">
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -53,11 +66,15 @@
       <option value="8">8</option>
     </select>
   </div>
+  </div>
 </form>
 
-<div class="modidel-packages-container">
+<div class="button-containerr">
   <div class="button-container">
-    <button (click)="confirmDelete()">DELETE</button>
+    <button class="learn-button" (click)="confirmDelete()">DELETE</button>
     <button class="home-button" (click)="modifyPackage()">MODIFY</button>
   </div>
 </div>
+
+</body>
+</html>
