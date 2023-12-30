@@ -6,19 +6,26 @@
           {{ selectedPackage?.Title }}
         </div>
         <div class="card-body bg-primary text-white">
-          <!-- Bind the current question -->
           <h5 class="card-title">{{ currentFact?.recto }}</h5>
           <span class="badge position-absolute top-0 end-0 mt-2 me-2">
             Question {{ currentFactIndex + 1 }}/{{ learningFacts.length }}
           </span>
-          <!-- Show the answer if showAnswer is true -->
           <p class="card-text" *ngIf="showAnswer">{{ currentFact?.verso }}</p>
         </div>
       </div>
-      <!-- Change the button text depending on the state -->
-      <button class="btn btn-secondary mt-3" (click)="onClick()">
-        {{ allFactsAnswered ? 'Home' : (showAnswer ? 'Next question' : 'Show Answer') }}
-      </button>
+      <div class="button-and-dropdown">
+        <button class="btn btn-secondary mt-3" (click)="onClick()">
+          {{ allFactsAnswered ? 'See results' : (showAnswer ? 'Next question' : 'Show Answer') }}
+        </button>
+        <!-- Dropdown for rating the response -->
+        <select class="form-control mt-3" id="packageField" [(ngModel)]="selectedRating" *ngIf="showAnswer">
+
+          <option [value]="0">Rate your response</option>
+          <option [value]="1">Good</option>
+          <option [value]="2">Average</option>
+          <option [value]="3">Poor</option>
+        </select>
+      </div>
     </div>
   </div>
 </div>

@@ -17,6 +17,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CreateFactComponent } from './create-fact/create-fact.component';
 import { LearningComponent } from './learning/learning.component';
+import { PerformancePieChartComponent } from './performance-pie-chart/performance-pie-chart.component';
+import { HighchartsChartModule } from "highcharts-angular";
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -32,14 +34,16 @@ AppModule = __decorate([
             ModidelFactComponent,
             HomeComponent,
             CreateFactComponent,
-            LearningComponent
+            LearningComponent,
+            PerformancePieChartComponent
         ],
         imports: [
             BrowserModule,
             AppRoutingModule,
             NgbModule,
             HttpClientModule,
-            FormsModule
+            FormsModule,
+            HighchartsChartModule
         ],
         providers: [],
         bootstrap: [AppComponent]

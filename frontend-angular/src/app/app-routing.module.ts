@@ -9,8 +9,9 @@ import { ManageFactsComponent } from "./manage-facts/manage-facts.component";
 import { CreatePackageComponent } from "./create-package/create-package.component";
 import { ModidelPackageComponent } from "./modidel-package/modidel-package.component";
 import { CreateFactComponent } from "./create-fact/create-fact.component";
-import {ModidelFactComponent } from "./modidel-fact/modidel-fact.component";
+import { ModidelFactComponent } from "./modidel-fact/modidel-fact.component";
 import { LearningComponent } from "./learning/learning.component";
+import { PerformancePieChartComponent } from "./performance-pie-chart/performance-pie-chart.component";
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'modidel-package', component: ModidelPackageComponent},
   { path: 'create-fact', component: CreateFactComponent},
   { path: 'modidel-fact', component: ModidelFactComponent},
-  { path: 'learn/:selectedPackageId', component:LearningComponent}
+  { path: 'learn/:selectedPackageId', component:LearningComponent},
+  { path: 'learn/results/:ngood/:navg/:nbad', component:PerformancePieChartComponent}
 ];
 
 @NgModule({

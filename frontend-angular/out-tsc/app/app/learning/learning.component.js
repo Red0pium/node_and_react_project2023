@@ -5,6 +5,7 @@ let LearningComponent = class LearningComponent {
         this.router = router;
         this.route = route;
         this.packageService = packageService;
+        this.selectedRating = 0;
         this.allFactsAnswered = false;
         this.selectedPackage = null;
         this.selectedPackageId = null;
@@ -12,10 +13,13 @@ let LearningComponent = class LearningComponent {
         this.currentFactIndex = 0;
         this.showAnswer = false;
         this.currentFact = null;
+        this.ngood = 0;
+        this.navg = 0;
+        this.nbad = 0;
     }
     ngOnInit() {
         this.route.paramMap.subscribe(params => {
-            this.selectedPackageId = Number(params.get('selectedPackageId')); // Make sure 'packageID' matches your route configuration
+            this.selectedPackageId = Number(params.get('selectedPackageId'));
         });
         if (this.selectedPackageId !== null) {
             this.packageService.getPackageById(this.selectedPackageId).subscribe(data => {
@@ -43,13 +47,29 @@ let LearningComponent = class LearningComponent {
     }
     onClick() {
         if (this.showAnswer) {
-            // Move to the next fact
-            this.currentFactIndex++;
-            if (this.currentFactIndex < this.learningFacts.length) {
-                this.currentFact = this.learningFacts[this.currentFactIndex];
+            if (Number(this.selectedRating) === 0) {
+                alert("Select a rating");
             }
             else {
-                this.navigateTo("home");
+                if (Number(this.selectedRating) === 1) {
+                    this.ngood += 1;
+                }
+                else if (Number(this.selectedRating) === 2) {
+                    this.navg += 1;
+                }
+                else if (Number(this.selectedRating) === 3) {
+                    this.nbad += 1;
+                }
+                this.currentFactIndex++;
+                if (this.currentFactIndex < this.learningFacts.length) {
+                    this.currentFact = this.learningFacts[this.currentFactIndex];
+                    // Toggle the showAnswer flag
+                    this.showAnswer = !this.showAnswer;
+                    this.selectedRating = 0;
+                }
+                else {
+                    this.navigateTo(`learn/results/${this.ngood}/${this.navg}/${this.nbad}`);
+                }
             }
         }
         else {
@@ -57,9 +77,9 @@ let LearningComponent = class LearningComponent {
                 this.allFactsAnswered = true;
                 console.log('No more facts to learn.');
             }
+            // Toggle the showAnswer flag
+            this.showAnswer = !this.showAnswer;
         }
-        // Toggle the showAnswer flag
-        this.showAnswer = !this.showAnswer;
     }
     navigateTo(destination) {
         this.router.navigate([`/${destination}`]);

@@ -45,8 +45,22 @@
   display: block;
   width: 200px;
   margin: 1rem auto;
+  flex-grow: 1;
+  margin-right: 5px; /* Adds some spacing between the button and the dropdown */
 }
 
 .btn:hover {
   background-color: #0941b2 ;
 }
+
+.button-and-dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-control {
+  flex-grow: 1;
+  margin-right: 5px;
+}
+
